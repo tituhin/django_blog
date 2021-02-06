@@ -16,14 +16,11 @@ def article_detail(request,slug):
 
 @login_required(login_url='accounts:login')
 def article_create(request):
-    if request.method is "POST":
+    if request.method == "POST":
         form = forms.CreateArticle(request.POST,request.FILES,request.user)
         if form.is_valid():
-            #save Article to db
-            # form.save() #will save the data to database but won't have any user 
-
-            instance = form.save()  # using this parameter saving data with the user
-            instance.authur = request.User
+            instance = form.save(commit=False)  # using this parameter saving data with the user
+            instance.authur = request.user
             instance.save()
             return redirect('articles:list')
     else:
