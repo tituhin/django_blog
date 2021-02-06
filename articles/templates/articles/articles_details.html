@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+<title>Blog - {{article.title}}</title>
+<div class="article-details col-md ">
+    <div class="article">
+        <img src="{{article.thumb.url}}" alt="">
+        <h2 class="display-2">{{article.title}}</h2>
+        <p class="lead text-justify text-body">{{article.body}}</p>
+        <p class="date-icon">{{article.date}}</p>
+    </div>
+</div>
+
+{% endblock container %}

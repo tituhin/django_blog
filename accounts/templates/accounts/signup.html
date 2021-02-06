@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block container %}
+ <div class="row  form-group m-3">
+
+    <form class="form-group" action="/accounts/signup/" method="post">
+     {% csrf_token %}
+    {{form}}
+    <input type="submit" name="signup"  id="">
+    </form>
+</div>
+
+{% endblock container %}

@@ -1,0 +1,32 @@
+<title>Articles</title>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+
+<div class="container">
+<div class="row">
+    <div class="col">
+
+        <!-- Title -->
+        <h1 class="display-3">Articles List</h1>
+    </div>
+</div>
+<article>
+     {% for article in articles %}
+        <div class="container">
+            <div class="">
+                <div class=" row"><h3 class="row"><a href="{% url 'articles:details' slug=article.slug %}">{{article.title}}</a> </h3></div>
+                <div class="row"><p class="">{{article.snippet}}</p></div>
+                <div class="row"><p>{{article.date}}</p></div>
+                
+                </article>
+            </div>
+        </div>    
+    {% endfor %}
+</article>
+
+{% endblock container %}
+
+
